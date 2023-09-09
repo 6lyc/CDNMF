@@ -7,7 +7,7 @@ import torch
 from time import perf_counter as t
 from Utils.evaluate import clusterscores
 from Dataset.dataset import Dataset
-from Model.model_contloss_v1 import Model
+from Model.my_model import Model
 from PreTrainer.pretrainer import PreTrainer
 from Utils import gpu_info
 
