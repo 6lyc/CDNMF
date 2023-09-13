@@ -70,7 +70,6 @@ if __name__=='__main__':
     # pretrainer = PreTrainer(pretrain_config)
     # pretrainer.pre_training(graph.A.detach().cpu().numpy(), 'net')
 
-    # 可以用谱聚类中的相似矩阵重构邻接矩阵（包含全局的信息）
     # print(graph.A.shape)
     # print(graph.X.shape)
     # pretrainer.pre_training(graph.X.t().detach().cpu().numpy(), 'att')
@@ -101,7 +100,7 @@ if __name__=='__main__':
     N = []
     R = []
     M = []
-    for i in range(5):
+    for i in range(20):
         max_acc = 0
         model = Model(model_config).to(device)
         optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
