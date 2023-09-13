@@ -1,7 +1,6 @@
 '''
-simple mode
-对比代码：去偏对比学习
-A对比X
+Deep NMF
+Debiased Contrastive Learning
 '''
 
 import os
@@ -39,13 +38,12 @@ class Model(torch.nn.Module):
         self.U = torch.nn.ParameterDict({})
         self.V = torch.nn.ParameterDict({})
 
-        # 读取时运行了其他code，同名文件被覆盖了
         if os.path.isfile(self.pretrain_params_path):
             with open(self.pretrain_params_path, 'rb') as handle:
                 self.U_init, self.V_init = pickle.load(handle)
 
         if self.is_init:
-            # 自定义可训练参数
+            # Define trainable parameters
             module = 'net'
             # print(len(self.net_shape))
             for i in range(len(self.net_shape)):
@@ -167,7 +165,6 @@ class Model(torch.nn.Module):
         # print('done:loss2', loss2)
 
         # contrastive loss
-        # 不一定每次都更新
         loss3 = self.contra_loss(self.V1, self.V2)
         # print('done:loss3', loss3)
 
