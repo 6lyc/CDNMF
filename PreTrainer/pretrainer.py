@@ -1,6 +1,3 @@
-# 可以改成tf上的包
-# NMF基于numpy，不能直接做GPU运算
-# 可以放CPU张量，它会转成Numpy数组
 from sklearn.decomposition import NMF
 from tqdm import tqdm
 import pickle
