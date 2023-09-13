@@ -3,26 +3,25 @@ import numpy as np
 from scipy.optimize import linear_sum_assignment
 from sklearn.metrics.cluster import normalized_mutual_info_score, adjusted_rand_score, adjusted_mutual_info_score
 
-'''  利用Python实现NMI、ACC、ARI计算'''
+'''  Implementing NMI, ACC, and ARI calculations based on Python  '''
 
 def NMI(A, B):
-    # 样本点数
     total = len(A)
     A_ids = set(A)
     B_ids = set(B)
-    # 互信息计算
+    
     MI = 0
     eps = 1.4e-45
     for idA in A_ids:
         for idB in B_ids:
-            idAOccur = np.where(A == idA)  # 输出满足条件的元素的下标
+            idAOccur = np.where(A == idA)  
             idBOccur = np.where(B == idB)
             idABOccur = np.intersect1d(idAOccur, idBOccur)  # Find the intersection of two arrays.
             px = 1.0 * len(idAOccur[0]) / total
             py = 1.0 * len(idBOccur[0]) / total
             pxy = 1.0 * len(idABOccur) / total
             MI = MI + pxy * math.log(pxy / (px * py) + eps, 2)
-    # 标准化互信息
+   
     Hx = 0
     for idA in A_ids:
         idAOccurCount = 1.0 * len(np.where(A == idA)[0])
@@ -39,12 +38,12 @@ def MI(A, B):
     total = len(A)
     A_ids = set(A)
     B_ids = set(B)
-    # 互信息计算
+    
     MI = 0
     eps = 1.4e-45
     for idA in A_ids:
         for idB in B_ids:
-            idAOccur = np.where(A == idA)  # 输出满足条件的元素的下标
+            idAOccur = np.where(A == idA)  
             idBOccur = np.where(B == idB)
             idABOccur = np.intersect1d(idAOccur, idBOccur)  # Find the intersection of two arrays.
             px = 1.0 * len(idAOccur[0]) / total
@@ -55,11 +54,11 @@ def MI(A, B):
 
 
 def bestMap(needmodified, ref, class_num):
-    # 要求下标从0开始,长度相等，类别数相等
+    
     if len(needmodified) != len(ref):
-        print('需要对齐长度')
+        print('Need to align length！')
         return
-    # 计算cost矩阵
+   
     N = len(needmodified)
 
     K = class_num
@@ -71,7 +70,7 @@ def bestMap(needmodified, ref, class_num):
                 if needmodified[n] == i and ref[n] == j:
                     cij += 1
             C[i][j] = cij
-    # 找最大匹配
+    
     # print(C)
     row_ind, col_ind = linear_sum_assignment(C, maximize=True)
     # print(col_ind)
@@ -79,8 +78,7 @@ def bestMap(needmodified, ref, class_num):
     modified_pred = np.zeros(N)
     for i in range(N):
         modified_pred[i] = col_ind[needmodified[i]]
-    # 得到对应的类标
-
+    
     return modified_pred.astype(int)
 
 
