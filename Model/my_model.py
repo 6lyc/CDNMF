@@ -1,6 +1,5 @@
 '''
-Deep NMF
-Debiased Contrastive Learning
+CDNMF
 '''
 
 import os

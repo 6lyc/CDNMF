@@ -102,7 +102,7 @@ if __name__=='__main__':
             prev = now
 
         M.append(acc)
-        # print(acc)
+        print(acc)
     print(np.mean(M))
     print("=== Final ===")
 
