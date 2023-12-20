@@ -1,5 +1,5 @@
-# CDNMF
-The implementation of our paper ["Contrastive Deep Nonnegative Matrix Factorization for Community Detection"](https://arxiv.org/abs/2311.02357). (**ICASSP 2024**)
+# CDNMF: Contrastive Deep Nonnegative Matrix Factorization for Community Detection
+The implementation of our paper ["Contrastive Deep Nonnegative Matrix Factorization for Community Detection"](https://arxiv.org/abs/2311.02357). (**ICASSP 2024, CCF B**)
 
 ![framework](./framework.png)
 
