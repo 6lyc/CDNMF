@@ -23,9 +23,11 @@ Running shell：
 
 ## Community Detection Results and Convergence
 Performance on **Cora**, **Citeseer** and **PubMed** (10 runs):
+
 ![results](./figures/results.png) 
 
 Convergence Rate on **Cora**, **Citeseer**:
+
 ![convergence](./figures/convergence.png)
 
 ## Citation
