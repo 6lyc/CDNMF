@@ -1,7 +1,11 @@
 # CDNMF: Contrastive Deep Nonnegative Matrix Factorization for Community Detection
 The implementation of our paper ["Contrastive Deep Nonnegative Matrix Factorization for Community Detection"](https://arxiv.org/abs/2311.02357). (**ICASSP 2024, CCF B**)
 
-![framework](./framework.png)
+## Overview
+![framework](./figures/framework.png)
+We introduce the idea of contrastive learning (CL) into the nonnegative matrix factorization (NMF) for community detection (CD) **for the first time**, solving the problems of the existing work.
+
+The two modules are mutually reinforcing and naturally coupled: On the one hand, with the help of CL, positive samples are contrasted to allow the NMF to learn **both the graph topological and attribute signals**, while negative samples are contrasted to make the embedding space from NMF more suitable for CD; On the other hand, with the help of NMF's outputs, **more accurate negative samples** can be obtained in CL. Moreover, NMF increases the interpretability of the existing framework.
 
 ## Abstract
 Recently, nonnegative matrix factorization (NMF) has been widely adopted for community detection, because of its better interpretability. However, the existing NMF-based methods have the following three problems: 1. they directly transform the original network into community membership space, so it is difficult for them to capture the hierarchical information; 2. they often only pay attention to the topology of the network and ignore its node attributes; 3. it is hard for them to learn the global structure information necessary for community detection.  
@@ -16,6 +20,13 @@ The code takes an input graph in a txt file. Sample graphs for the **Cora** is i
 ## Quick Start
 Running shell：    
 `python script_cora.py`
+
+## Community Detection Results and Convergence
+Performance on **Cora**, **Citeseer** and **PubMed** (10 runs):
+![results](./figures/results.png) 
+
+Convergence Rate on **Cora**, **Citeseer**:
+![convergence](./figures/convergence.png)
 
 ## Citation
 Please cite our paper if you use this code or our model in your own work:
