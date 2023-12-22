@@ -22,7 +22,7 @@ Running shell：
 `python script_cora.py`
 
 ## Community Detection Results and Convergence
-Performance on **Cora**, **Citeseer** and **PubMed** (10 runs):  
+Performance on **Cora**, **Citeseer** and **PubMed** (20 runs):  
 ![results](./figures/results.png) 
 
 Convergence Rate on **Cora**, **Citeseer**:  
