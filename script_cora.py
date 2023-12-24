@@ -11,7 +11,6 @@ from Model.my_model import Model
 from PreTrainer.pretrainer import PreTrainer
 from Utils import gpu_info
 
-acc = 0
 
 def train(model: Model, graph, optimizer):
     optimizer.zero_grad()
@@ -25,9 +24,6 @@ def train(model: Model, graph, optimizer):
     y_true = graph.L.detach().cpu().numpy()
     # print(y_pred)
     scores = clusterscores(y_pred, y_true)
-    global acc
-    if scores['ACC'] > acc:
-        acc = scores['ACC']
 
     return loss.item(), loss1.item(), loss2.item(), loss3.item(), loss4.item(), loss5.item(), scores
 
@@ -62,23 +58,21 @@ if __name__=='__main__':
         'att_input_dim': graph.num_feas,
         'is_init': True,
         'pretrain_params_path': './Log/cora/pretrain_params.pkl',
-        'tau': 1.4,
+        'tau': 1.3,
         'conc': 5,
-        'negc': 150,
+        'negc': 390,
         'rec': 1,
-        'r': 2,
+        'r': 3,
         'learning_rate': 0.01,
         'weight_decay': 0.00001,
-        'epoch': 450,
+        'epoch': 550,
         'run': 20,
         'model_path': './Log/cora/cora_model.pkl'
     }
 
+    # pre-training stage
     # pretrainer = PreTrainer(pretrain_config)
     # pretrainer.pre_training(graph.A.detach().cpu().numpy(), 'net')
-
-    # print(graph.A.shape)
-    # print(graph.X.shape)
     # pretrainer.pre_training(graph.X.t().detach().cpu().numpy(), 'att')
 
 
@@ -90,8 +84,9 @@ if __name__=='__main__':
     prev = start
 
     M = []
+    N = []
     for i in range(20):
-        acc = 0
+
         model = Model(model_config).to(device)
         optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
@@ -101,9 +96,10 @@ if __name__=='__main__':
             now = t()
             prev = now
 
-        M.append(acc)
-        print(acc)
-    print(np.mean(M))
+        M.append(scores['ACC'])
+        N.append(scores['NMI'])
+        # print(acc)
+    print('ACC: ', np.mean(M), '; NMI: ', np.mean(N))
     print("=== Final ===")
 
 
