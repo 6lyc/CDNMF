@@ -1,92 +1,6 @@
-import math
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 from sklearn.metrics.cluster import normalized_mutual_info_score, adjusted_rand_score, adjusted_mutual_info_score
-
-'''  Implementing NMI, ACC, and ARI calculations based on Python  '''
-
-def NMI(A, B):
-    total = len(A)
-    A_ids = set(A)
-    B_ids = set(B)
-    
-    MI = 0
-    eps = 1.4e-45
-    for idA in A_ids:
-        for idB in B_ids:
-            idAOccur = np.where(A == idA)  
-            idBOccur = np.where(B == idB)
-            idABOccur = np.intersect1d(idAOccur, idBOccur)  # Find the intersection of two arrays.
-            px = 1.0 * len(idAOccur[0]) / total
-            py = 1.0 * len(idBOccur[0]) / total
-            pxy = 1.0 * len(idABOccur) / total
-            MI = MI + pxy * math.log(pxy / (px * py) + eps, 2)
-   
-    Hx = 0
-    for idA in A_ids:
-        idAOccurCount = 1.0 * len(np.where(A == idA)[0])
-        Hx = Hx - (idAOccurCount / total) * math.log(idAOccurCount / total + eps, 2)
-    Hy = 0
-    for idB in B_ids:
-        idBOccurCount = 1.0 * len(np.where(B == idB)[0])
-        Hy = Hy - (idBOccurCount / total) * math.log(idBOccurCount / total + eps, 2)
-    MIhat = 2.0 * MI / (Hx + Hy)
-    return MIhat
-
-
-def MI(A, B):
-    total = len(A)
-    A_ids = set(A)
-    B_ids = set(B)
-    
-    MI = 0
-    eps = 1.4e-45
-    for idA in A_ids:
-        for idB in B_ids:
-            idAOccur = np.where(A == idA)  
-            idBOccur = np.where(B == idB)
-            idABOccur = np.intersect1d(idAOccur, idBOccur)  # Find the intersection of two arrays.
-            px = 1.0 * len(idAOccur[0]) / total
-            py = 1.0 * len(idBOccur[0]) / total
-            pxy = 1.0 * len(idABOccur) / total
-            MI = MI + pxy * math.log(pxy / (px * py) + eps, 2)
-    return MI
-
-
-def bestMap(needmodified, ref, class_num):
-    
-    if len(needmodified) != len(ref):
-        print('Need to align length！')
-        return
-   
-    N = len(needmodified)
-
-    K = class_num
-    C = np.zeros((K, K))
-    for i in range(K):
-        for j in range(K):
-            cij = 0
-            for n in range(N):
-                if needmodified[n] == i and ref[n] == j:
-                    cij += 1
-            C[i][j] = cij
-    
-    # print(C)
-    row_ind, col_ind = linear_sum_assignment(C, maximize=True)
-    # print(col_ind)
-
-    modified_pred = np.zeros(N)
-    for i in range(N):
-        modified_pred[i] = col_ind[needmodified[i]]
-    
-    return modified_pred.astype(int)
-
-
-# def acc(pred,y_true,class_num):
-#     modified_pred = bestMap(pred,y_true,class_num)
-#     acc = np.sum(modified_pred==y_true)/len(modified_pred)
-#     return acc
-
 
 def cluster_acc(y_pred, y_true):
     y_true = y_true.astype(np.int64)
@@ -118,10 +32,6 @@ if __name__ == "__main__":
     C = np.array([2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
     D = np.array([1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0])
     print(clusterscores(C, D)['ACC'])
-    # print(NMI(A,C))
-    # print(clusterscores(d,))
-    # print(acc(C,A,3))
-    # print(acc(A,D))
 '''
 
 

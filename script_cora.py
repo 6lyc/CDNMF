@@ -32,7 +32,7 @@ if __name__=='__main__':
 
     random.seed(42)
 
-    device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     dataset_config = {'feature_file': './Database/cora/features.txt',
                       'graph_file': './Database/cora/edges.txt',
@@ -70,7 +70,7 @@ if __name__=='__main__':
         'model_path': './Log/cora/cora_model.pkl'
     }
 
-    # pre-training stage
+    # 'Pre-training stage'
     # pretrainer = PreTrainer(pretrain_config)
     # pretrainer.pre_training(graph.A.detach().cpu().numpy(), 'net')
     # pretrainer.pre_training(graph.X.t().detach().cpu().numpy(), 'att')
@@ -85,6 +85,8 @@ if __name__=='__main__':
 
     M = []
     N = []
+
+    # 'Fine-tuning stage'
     for i in range(20):
 
         model = Model(model_config).to(device)
