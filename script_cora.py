@@ -60,7 +60,7 @@ if __name__=='__main__':
         'pretrain_params_path': './Log/cora/pretrain_params.pkl',
         'tau': 1.3,
         'conc': 5,
-        'negc': 390,
+        'negc': 400,
         'rec': 1,
         'r': 3,
         'learning_rate': 0.01,

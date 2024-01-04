@@ -59,7 +59,7 @@ if __name__=='__main__':
         'pretrain_params_path': './Log/citeseer/pretrain_params.pkl',
         'tau': 1.5,
         'conc': 5,
-        'negc': 2900,
+        'negc': 3000,
         'rec': 1,
         'r': 1,
         'learning_rate': 0.001,
