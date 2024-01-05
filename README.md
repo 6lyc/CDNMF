@@ -1,4 +1,6 @@
 # CDNMF: Contrastive Deep Nonnegative Matrix Factorization for Community Detection
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/contrastive-deep-nonnegative-matrix/community-detection-on-cora)](https://paperswithcode.com/sota/community-detection-on-cora?p=contrastive-deep-nonnegative-matrix)
+
 The implementation of our paper ["Contrastive Deep Nonnegative Matrix Factorization for Community Detection"](https://arxiv.org/abs/2311.02357). (**ICASSP 2024, CCF B**)
 
 ## Overview
