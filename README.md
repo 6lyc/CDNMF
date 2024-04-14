@@ -38,13 +38,13 @@ Convergence Rate on **Cora**, **Citeseer**:
 ## Citation
 Please cite our paper if you use this code or our model in your own work:
 
-@inproceedings{li2024contrastive,
-  title={Contrastive deep nonnegative matrix factorization for community detection},
-  author={Li, Yuecheng and Chen, Jialong and Chen, Chuan and Yang, Lei and Zheng, Zibin},
-  booktitle={ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
-  pages={6725--6729},
-  year={2024},
-  organization={IEEE}
+@inproceedings{li2024contrastive,  
+  title={Contrastive deep nonnegative matrix factorization for community detection},  
+  author={Li, Yuecheng and Chen, Jialong and Chen, Chuan and Yang, Lei and Zheng, Zibin},  
+  booktitle={ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},  
+  pages={6725--6729},  
+  year={2024},  
+  organization={IEEE}  
 }
 
 
