@@ -3,6 +3,8 @@
 
 The implementation of our paper ["Contrastive Deep Nonnegative Matrix Factorization for Community Detection"](https://arxiv.org/abs/2311.02357). (**ICASSP 2024, CCF B**)
 
+**Blog**: [[CN]](https://blog.csdn.net/m0_50826544/article/details/136773553?spm=1011.2415.3001.5331) | [[EN]](https://medium.com/@liych168168/cdnmf-a-trustworthy-and-efficient-community-detection-method-88dc9a6aba2b)
+
 ## Overview
 ![framework](./figures/framework.png)
 We introduce the idea of contrastive learning (CL) into the nonnegative matrix factorization (NMF) for community detection (CD) **for the first time**, solving the problems of the existing work.
