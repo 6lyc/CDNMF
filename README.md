@@ -8,7 +8,7 @@ The implementation of our paper ["Contrastive Deep Nonnegative Matrix Factorizat
 
 **Blog**: [[CN]](https://blog.csdn.net/m0_50826544/article/details/136773553?spm=1011.2415.3001.5331) | [[EN]](https://medium.com/@liych168168/cdnmf-a-trustworthy-and-efficient-community-detection-method-88dc9a6aba2b)
 
-**Wechat Public Platform**: [Paper Reading](https://mp.weixin.qq.com/s/3rknZMBeqHW0fNtEvrEA8Q)
+**Wechat Public Platform**: [Paper Reading Note](https://mp.weixin.qq.com/s/3rknZMBeqHW0fNtEvrEA8Q)
 
 **Academic Poster in ICASSP2024 (Korea)**: [Poster](https://github.com/6lyc/CDNMF/blob/main/Poster.pdf)
 
